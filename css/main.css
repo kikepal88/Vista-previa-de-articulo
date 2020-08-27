@@ -1,9 +1,11 @@
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   background: hsl(210, 46%, 95%);
   font-size: 13px;
   font-family: "Manrope";
+  z-index: 1;
 }
 
 a {
@@ -49,7 +51,6 @@ main .main-artpreview p {
   letter-spacing: 0.025em;
 }
 main .artpreview-authorshare {
-  /* margin: 0 2em 1em 2em; */
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -89,7 +90,7 @@ main .artpreview-authorshare .share {
 .share-click {
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   position: absolute;
@@ -119,4 +120,125 @@ main .artpreview-authorshare .share2 {
 }
 .share2 a {
   color: hsl(210, 46%, 95%);
+}
+.share-click2 {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  main .main-img {
+    height: 300px;
+  }
+  main .main-img figure {
+    height: 100%;
+    top: initial;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    width: 80%;
+  }
+  main .main-img {
+    height: 350px;
+  }
+  main .main-img figure {
+    height: 100%;
+    top: initial;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    max-width: 700px;
+    display: grid;
+    grid-template: 75% 25% / 40% 60%;
+    grid-template-areas:
+      "img art"
+      "img usershare";
+    justify-content: center;
+    align-content: center;
+    max-height: 35%;
+  }
+  main .main-img {
+    grid-area: img;
+    width: 100%;
+    height: 100%;
+    max-height: 304px;
+  }
+  main .main-img figure {
+    height: 100%;
+    top: initial;
+    max-height: 304px;
+  }
+  main .main-img img {
+    width: initial;
+    height: 100%;
+    max-height: 100%;
+  }
+
+  main .main-artpreview {
+    grid-area: art;
+    padding: 2.5em 3em 0 3em;
+  }
+  main .main-artpreview p {
+    margin-bottom: 0;
+  }
+
+  main .artpreview-authorshare {
+    margin: 0 3em 2em 3em;
+    grid-area: usershare;
+  }
+  .artpreview-authorshare .author {
+    margin: 0;
+  }
+  main .artpreview-authorshare .share {
+    margin: 0;
+  }
+  .share-click2 {
+    width: 250px;
+    height: 60px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: hsl(217, 19%, 35%);
+    border-radius: 15px;
+    bottom: 35%;
+    left: 65%;
+  }
+  .share-click2 a {
+    margin: 0.7em;
+    color: hsl(210, 46%, 95%);
+  }
+  .share-click2 a p {
+    letter-spacing: 0.4em;
+  }
+  .arrow {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 45px;
+    left: 135px;
+    transform: rotate(45deg);
+    background: hsl(217, 19%, 35%);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .share-click2 {
+    left: 60%;
+  }
+  .arrow {
+    left: 155px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .share-click2 {
+    left: 60%;
+  }
+  .arrow {
+    left: 120px;
+  }
 }
